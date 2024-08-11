@@ -19,16 +19,19 @@
   </xs:complexType>
 
   <xs:complexType name="LocType">
-    <xs:sequence>
-      <xs:element name="destination" type="trav:DestinationType"/>
-      <xs:element name="flight" type="xs:complexType">
-        <xs:sequence>
-          <xs:element name="airline" type="xs:string"/>
-          <xs:element name="departure" type="xs:date"/>
-          <xs:element name="arrival" type="xs:date"/>
-          <xs:element name="amount" type="xs:decimal"/>
-        </xs:sequence>
-      </xs:element>
+  <xs:sequence>
+    <xs:element name="destination" type="trav:DestinationType"/>
+    <xs:element name="flight" type="xs:complexType">
+      <xs:sequence>
+        <xs:element name="airline" type="xs:string"/>
+        <xs:element name="departure" type="xs:date"/>
+        <xs:element name="arrival" type="xs:date"/>
+        <xs:element name="amount" type="xs:decimal"/>
+      </xs:sequence>
+    </xs:element>
+    <xs:element name="bus" type="xs:complexType"/>
+  </xs:sequence>
+</xs:complexType>
 
       <xs:complexType name="HotelType">
     <xs:sequence>
