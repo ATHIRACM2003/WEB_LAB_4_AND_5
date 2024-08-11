@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://xyz.com/trav"
+           xmlns:ns="http://xyz.com/trav"
+           elementFormDefault="qualified">
+
+  
+  <xs:element name="booking">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="place" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="location" type="ns:locationType"/>
+              <xs:element name="mode" type="ns:modeType"/>
+              <xs:element name="date" type="ns:dateType"/>
+              <xs:element name="food" type="ns:foodType"/>
+              <xs:element name="weather" type="ns:weatherType"/>
+              <xs:element name="language" type="ns:languageType"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:complexType name="locationType">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="city" type="xs:string"/>
+      <xs:element name="country" type="xs:string"/>
+      <xs:element name="amount" type="xs:integer"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:ID" use="required"/>
+  </xs:complexType>
+
+ 
+  <xs:simpleType name="modeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Flight"/>
+      <xs:enumeration value="Bus"/>
+      <xs:enumeration value="Train"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  
+  <xs:complexType name="dateType">
+    <xs:sequence>
+      <xs:element name="dnum" type="xs:integer"/>
+      <xs:element name="day" type="xs:string"/>
+      <xs:element name="month" type="xs:string"/>
+      <xs:element name="year" type="xs:integer"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:ID" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="foodType">
+    <xs:sequence>
+      <xs:element name="native" type="xs:string"/>
+      <xs:element name="popular" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:ID" use="required"/>
+  </xs:complexType>
+
+ 
+  <xs:complexType name="weatherType">
+    <xs:sequence>
+      <xs:element name="mintemp">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="maxtemp">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="10"/>
+            <xs:maxInclusive value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <!-- <xs:element name="humidity" type="xs:float"/> -->
+      <xs:element name="humidity">
+        <xs:simpleType>
+          <xs:restriction base="xs:float">   
+            <xs:pattern value="[10-80]"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:ID" use="required"/>
+  </xs:complexType>
+
+ 
+  <xs:complexType name="languageType">
+    <xs:sequence>
+      <xs:element name="natlang" type="xs:string"/>
+      <xs:element name="poplang" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:ID" use="required"/>
+  </xs:complexType>
+
+</xs:schema>

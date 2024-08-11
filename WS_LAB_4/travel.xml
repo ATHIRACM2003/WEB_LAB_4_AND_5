@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml-model href="travels.dtd" type="application/xml-dtd"?> -->
+<?xml-stylesheet href="travels.xsl" type="text/xsl" ?> 
+<booking xmlns:ns="http://xyz.com/trav"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="www.xyz.com/WS_LAB_4/trav travels.xsd" >
+        <place>     
+            <location id="L1">
+                 <name>Golden temple</name>
+                 <city>Amritsar</city>
+                 <country>India</country>
+                 <amount>4000</amount>
+           </location>  
+           <mode id="M1">Flight</mode>
+           <date id="D1">
+             <dnum>20</dnum>
+             <day>Friday</day>
+             <month>Oct</month>
+             <year>2024</year>
+          </date>
+          <food id="F1">
+            <native>dal chawal</native>
+            <popular>Chole kulche</popular>
+        </food>
+    
+        <weather id="W1">
+            <mintemp>20</mintemp>
+            <maxtemp>40</maxtemp>
+            <humidity>30.5</humidity>
+        </weather>
+    
+        <language id="La1">
+            <natlang>Punjabi</natlang>
+            <poplang>Hindi</poplang>
+            
+        </language>
+        </place>
+
+        <place>     
+            <location id="L2">
+                 <name>Kodaikanal</name>
+                 <city>TamilNadu</city>
+                 <country>India</country>
+                 <amount>5000</amount>
+           </location>  
+           <mode id="M2">Bus</mode>
+           <date id="D2">
+             <dnum>17</dnum>
+             <day>Wednesday</day>
+             <month>Dec</month>
+             <year>2024</year>
+          </date>
+          <food id="F2">
+            <native>Rice</native>
+            <popular>Biriyani</popular>
+        </food>
+    
+        <weather id="W2">
+            <mintemp>10</mintemp>
+            <maxtemp>50</maxtemp>
+            <humidity>20.5</humidity>
+        </weather>
+    
+        <language id="La2">
+            <natlang>Tamil</natlang>
+            <poplang>Tamil</poplang>  
+        </language>
+        </place>
+
+        <place>     
+            <location id="L3">
+                 <name>Kullu Manali</name>
+                 <city>Shimla</city>
+                 <country>India</country>
+                 <amount>8000</amount>
+           </location>  
+           <mode id="M3">Train</mode>
+           <date id="D3">
+             <dnum>19</dnum>
+             <day>Monday</day>
+             <month>Sep</month>
+             <year>2024</year>
+          </date>
+          <food id="F3">
+            <native>Laphing</native>
+            <popular>Maggi</popular>
+        </food>
+    
+        <weather id="W3">
+            <mintemp>-1</mintemp>
+            <maxtemp>29</maxtemp>
+            <humidity>10.5</humidity>
+        </weather>
+    
+        <language id="La3">
+            <natlang>Himadri</natlang>
+            <poplang>Hindi</poplang>   
+        </language>
+        </place>
+
+  <place>     
+            <location id="L4">
+                 <name>Agra</name>
+                 <city>UP</city>
+                 <country>India</country>
+                 <amount>3000</amount>
+           </location>  
+           <mode id="M4">Train</mode>
+           <date id="D4">
+             <dnum>23</dnum>
+             <day>Sunday</day>
+             <month>Oct</month>
+             <year>2024</year>
+          </date>
+          <food id="F4">
+            <native>Chole Kulche</native>
+            <popular>Aloo Parantha</popular>
+        </food>
+    
+        <weather id="W4">
+            <mintemp>4</mintemp>
+            <maxtemp>39</maxtemp>
+            <humidity>20.5</humidity>
+        </weather>
+    
+        <language id="La4">
+            <natlang>Bhojpuri</natlang>
+            <poplang>Hindi</poplang>   
+        </language>
+        </place>
+
+        <place>     
+            <location id="L5">
+                 <name>Red Fort</name>
+                 <city>Delhi</city>
+                 <country>India</country>
+                 <amount>3500</amount>
+           </location>  
+           <mode id="M5">Train</mode>
+           <date id="D5">
+             <dnum>29</dnum>
+             <day>Tuesday</day>
+             <month>Nov</month>
+             <year>2024</year>
+          </date>
+          <food id="F5">
+            <native>Methi Ke Paranthe</native>
+            <popular>Chole Bhature</popular>
+        </food>
+    
+        <weather id="W5">
+            <mintemp>-1</mintemp>
+            <maxtemp>54</maxtemp>
+            <humidity>30.5</humidity>
+        </weather>
+    
+        <language id="La5">
+            <natlang>Hindi</natlang>
+            <poplang>Hindi</poplang>   
+        </language>
+        </place>
+</booking>
+
+
+
+<!--Without namespace-->
+<!-- <booking>
+        <place>       
+            <name>Golden temple</name>
+            <city>Amritsar</city>
+            <country>India</country>
+            <amount>4000</amount>
+        </place> -->
+       
+    <!-- <mode>flight</mode>
+
+    <date>
+        <dnum>20</dnum>
+        <day>Friday</day>
+        <month>October</month>
+        <year>2024</year>
+    </date>
+
+    <food>
+        <native>dal chawal</native>
+        <popular>Chole kulche</popular>
+    </food>
+
+    <weather>
+        <mintemp>20</mintemp>
+        <maxtemp>40</maxtemp>
+        <humidity>30.5</humidity>
+    </weather>
+
+    <language>
+        <natlang>Punjabi</natlang>
+        <poplang>hindi</poplang>
+        <offlang>xyz</offlang>
+    </language>
+</booking> -->
