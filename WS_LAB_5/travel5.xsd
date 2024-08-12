@@ -1,74 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-          targetNamespace="http://abc.com/trav"
-          elementFormDefault="qualified"
-          xmlns:trav="http://abc.com/trav">
-<xs:element name="travel" type="trav:TravelType"/>
+           targetNamespace="www.abc.com/trav"
+           xmlns="www.abc.com/trav"
+           elementFormDefault="qualified">
 
-<xs:complexType name="TravelType">
-    <xs:sequence>
-      <xs:element name="loc" type="trav:LocType" maxOccurs="unbounded"/>
-      <xs:element name="hotels" type="trav:HotelsType" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="HotelsType">
-    <xs:sequence>
-      <xs:element name="hotel" type="trav:HotelType"  maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="LocType">
-  <xs:sequence>
-    <xs:element name="destination" type="trav:DestinationType"/>
-    <xs:element name="flight" type="xs:complexType">
+  <!-- Root element -->
+  <xs:element name="travel">
+    <xs:complexType>
       <xs:sequence>
-        <xs:element name="airline" type="xs:string"/>
-        <xs:element name="departure" type="xs:date"/>
-        <xs:element name="arrival" type="xs:date"/>
-        <xs:element name="amount" type="xs:decimal"/>
+        <!-- Location element -->
+        <xs:element name="loc" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <!-- Destination element -->
+              <xs:element name="destination">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="city" type="xs:string"/>
+                    <xs:element name="country" type="countryType"/>
+                    <xs:element name="hotel" type="xs:string"/>
+                    <xs:element name="hotel_rent" type="xs:decimal"/>
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:integer" use="required"/>
+                </xs:complexType>
+              </xs:element>
+              <!-- Flight element -->
+              <xs:element name="flight">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="airline" type="xs:string"/>
+                    <xs:element name="departure" type="xs:date"/>
+                    <xs:element name="arrival" type="xs:date"/>
+                    <xs:element name="amount" type="xs:decimal"/>
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:ID" use="required"/>
+                </xs:complexType>
+              </xs:element>
+              <!-- Bus element -->
+              <xs:element name="bus">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="boarding" type="xs:string"/>
+                    <xs:element name="departure" type="xs:date"/>
+                    <xs:element name="arrival" type="xs:date"/>
+                    <xs:element name="amount" type="xs:decimal"/>
+                    <xs:element name="dropping" type="xs:string"/>
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:ID" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- Hotels element -->
+        <xs:element name="hotels">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="hotel">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="stars">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                          <xs:minInclusive value="0"/>
+                          <xs:maxInclusive value="5"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="price" type="xs:decimal"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:sequence>
-    </xs:element>
-    <xs:element name="bus" type="xs:complexType"/>
-  </xs:sequence>
-</xs:complexType>
-
-      <xs:complexType name="HotelType">
-    <xs:sequence>
-      <xs:element name="name" type="xs:string"/>
-      <xs:element name="stars" type="trav:RatingType"/>
-      <xs:element name="price" type="xs:decimal"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:simpleType name="RatingType">
-    <xs:restriction base="xs:integer">
-      <xs:minInclusive value="0"/>
-      <xs:maxInclusive value="5"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="countryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="USA"/>
+      <xs:enumeration value="India"/>
     </xs:restriction>
   </xs:simpleType>
-
-  
-
-  <xs:complexType name="DestinationType">
-    <xs:sequence>
-      <xs:element name="city" type="xs:string"/>
-      <xs:element name="country" type="xs:string"/>
-      <xs:element name="hotel" type="xs:string" minOccurs="0"/>
-      <xs:element name="hotel_rent" type="xs:decimal" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-
- 
-      <xs:element name="bus" type="xs:complexType">
-        <xs:sequence>
-          <xs:element name="boarding" type="xs:string"/>
-          <xs:element name="departure" type="xs:date"/>
-          <xs:element name="arrival" type="xs:date"/>
-          <xs:element name="amount" type="xs:decimal"/>
-          <xs:element name="dropping" type="xs:string"/>
-        </xs:sequence>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
 </xs:schema>
